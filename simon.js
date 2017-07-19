@@ -23,16 +23,20 @@ function reset(){
 }
 
 
-
+//to disable buttons when game starts.
 window.onload=function(){
     buttonDisable();
     
 };
 
+//to check status of toggle button.
 function checkOnOff(){
          return (document.getElementById('check').checked);
 }
 
+
+
+//to set and reset strict button.
 function setStrict(){
     if(checkOnOff()===true)
         {
@@ -56,31 +60,28 @@ function setStrict(){
 
 }
 
+//initial function, called when start button is clicked.
 function start(){
-   // buttonDisable();
-  /* game.stage=0;
-    game.currentSequence=[];
-    game.playerMoves=[];*/
-
-    if(checkOnOff()===true)
+   
+    if(checkOnOff()===true) //checking for toggle button,if it is true then proceed.
         {
           gameStart();
         }
     else
         {
-          
           return;
         }    
 }
 
 function gameStart(){
-         game.stage=0;
+    game.stage=0;
     game.currentSequence=[];
     game.playerMoves=[];
          addCount();
 }
-function addCount(){
-   // buttonDisable();
+
+function addCount(){        //to increase the count of stages.
+   
     game.stage++;
     document.getElementById('count').value=game.stage;
 
@@ -88,45 +89,50 @@ function addCount(){
 }
 
 
-function generateSequence(){
+//for generating random sequence
+function generateSequence(){   
     if(checkOnOff()===true)
         {
-        game.currentSequence.push(game.possible[(Math.floor(Math.random()*4))]);
+        game.currentSequence.push(game.possible[(Math.floor(Math.random()*4))]);  //use of Math.random to generate random number.
         showSequence();
         }
 }
-     
+    
+//function to show the sequence by flashing the buttons.
 function showSequence(){
     if(checkOnOff()===true)
        {
-         buttonDisable();
-        
-         
+         buttonDisable();       //disable the button while showing sequence.
+         document.getElementById("button-5").setAttribute("disabled","disabled");
          document.getElementById('count').value=game.stage;
          var i=0;
-         if(game.currentSequence.length!=0){
-         var moves=setInterval(function(){
-         showMove(game.currentSequence[i]);
-          i++;
-         if(i>=game.currentSequence.length)
-         {
+         if(game.currentSequence.length!=0)
+        {
+           var moves=setInterval(function(){
+           showMove(game.currentSequence[i]);
+            i++;
+           if(i>=game.currentSequence.length)
+             {
             clearInterval(moves);
-         }},800);
+            }},800);
+
          setTimeout(function(){
-             buttonEnable();
-           
-        },(game.stage*1000));
-         clearPlayer();
+             buttonEnable();         //enable the buttons once again.
+             document.getElementById("button-5").removeAttribute("disabled");
+         },(game.stage*1000));
+         clearPlayer();              
          }
     }
 }
 
+//clear player moves
 function clearPlayer(){
 game.playerMoves=[];
 
 
 }
 
+//for showing perticular button and audio play.
 function showMove(id){
 
 if(checkOnOff()==true){
@@ -143,6 +149,7 @@ setTimeout(function(){
 
 }
 
+//called when user clicks button as a move.
 function addPlayerMove(id){
     if(checkOnOff()===true)
         {
@@ -204,7 +211,7 @@ if(game.playerMoves[length1-1]!==game.currentSequence[length1-1])
             if(game.stage===20)
                 {
                 reset();
-                console.log("YOU WON!!!!");
+                alert("YOU WON!!!!");
                 
                 }
              else
@@ -224,7 +231,7 @@ function nextStage(){
     addCount();
 }
 
-
+//for playing sounds.
 function playAudio(id)
 {
     var x;
@@ -255,7 +262,7 @@ function playAudio(id)
             }
 }
 
-
+//change toggle swith
 function toggle(){
     if(checkOnOff()===false)
         {
@@ -264,12 +271,15 @@ function toggle(){
         
 }
 
+//TO disable buttons
 function buttonDisable(){
 document.getElementById("button-1").setAttribute("disabled","disabled");
 document.getElementById("button-2").setAttribute("disabled","disabled");
 document.getElementById("button-3").setAttribute("disabled","disabled");
 document.getElementById("button-4").setAttribute("disabled","disabled");
 }
+
+//To enable buttons
 function buttonEnable(){
 document.getElementById("button-1").removeAttribute("disabled");
 document.getElementById("button-2").removeAttribute("disabled");
