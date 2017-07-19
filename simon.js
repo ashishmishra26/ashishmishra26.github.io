@@ -1,3 +1,4 @@
+//object which contain some properties of game.
 var game={
 stage:0,
 possible:['button-1','button-2','button-3','button-4'],
@@ -8,8 +9,8 @@ strict:false,
 
 
 };
-//document.getElementById("check").onchange=reset();
-function reset(){
+//To return game to its initial configuration.
+function reset(){                                       
             setStrict();
             document.getElementById("count").value="--";
             buttonDisable();
@@ -21,18 +22,7 @@ function reset(){
         
 }
 
-function buttonDisable(){
-document.getElementById("button-1").setAttribute("disabled","disabled");
-document.getElementById("button-2").setAttribute("disabled","disabled");
-document.getElementById("button-3").setAttribute("disabled","disabled");
-document.getElementById("button-4").setAttribute("disabled","disabled");
-}
-function buttonEnable(){
-document.getElementById("button-1").removeAttribute("disabled");
-document.getElementById("button-2").removeAttribute("disabled");
-document.getElementById("button-3").removeAttribute("disabled");
-document.getElementById("button-4").removeAttribute("disabled");
-}
+
 
 window.onload=function(){
     buttonDisable();
@@ -272,4 +262,17 @@ function toggle(){
             reset();
         }
         
+}
+
+function buttonDisable(){
+document.getElementById("button-1").setAttribute("disabled","disabled");
+document.getElementById("button-2").setAttribute("disabled","disabled");
+document.getElementById("button-3").setAttribute("disabled","disabled");
+document.getElementById("button-4").setAttribute("disabled","disabled");
+}
+function buttonEnable(){
+document.getElementById("button-1").removeAttribute("disabled");
+document.getElementById("button-2").removeAttribute("disabled");
+document.getElementById("button-3").removeAttribute("disabled");
+document.getElementById("button-4").removeAttribute("disabled");
 }
