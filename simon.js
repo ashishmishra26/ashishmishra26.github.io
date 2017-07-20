@@ -5,11 +5,25 @@ possible:['button-1','button-2','button-3','button-4'],
 currentSequence:[],
 playerMoves:[],
 strict:false,
-
-
-
 };
+
 //To return game to its initial configuration.
+function buttonDisable(){
+document.getElementById("button-1").setAttribute("disabled","disabled");
+document.getElementById("button-2").setAttribute("disabled","disabled");
+document.getElementById("button-3").setAttribute("disabled","disabled");
+document.getElementById("button-4").setAttribute("disabled","disabled");
+}
+
+//To enable buttons
+function buttonEnable(){
+document.getElementById("button-1").removeAttribute("disabled");
+document.getElementById("button-2").removeAttribute("disabled");
+document.getElementById("button-3").removeAttribute("disabled");
+document.getElementById("button-4").removeAttribute("disabled");
+}
+
+
 function reset(){                                       
             setStrict();
             document.getElementById("count").value="--";
@@ -196,12 +210,11 @@ if(game.playerMoves[length1-1]!==game.currentSequence[length1-1])
         }
         else
             {
-               
+                  buttonDisable();
                   playAudio('wrong');
                   wrongBlink();
-                  
                   showSequence();
-                  buttonEnable();
+                  
             }
     }
  else
@@ -272,17 +285,3 @@ function toggle(){
 }
 
 //TO disable buttons
-function buttonDisable(){
-document.getElementById("button-1").setAttribute("disabled","disabled");
-document.getElementById("button-2").setAttribute("disabled","disabled");
-document.getElementById("button-3").setAttribute("disabled","disabled");
-document.getElementById("button-4").setAttribute("disabled","disabled");
-}
-
-//To enable buttons
-function buttonEnable(){
-document.getElementById("button-1").removeAttribute("disabled");
-document.getElementById("button-2").removeAttribute("disabled");
-document.getElementById("button-3").removeAttribute("disabled");
-document.getElementById("button-4").removeAttribute("disabled");
-}
