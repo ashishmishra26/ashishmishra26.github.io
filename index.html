@@ -1,39 +1,43 @@
 <html>
 <head>
+      <link rel="icon" href="Simon.png" type="image/png">
+      <title>Simon&reg Game</title>
       <link rel=stylesheet type="text/css" href="master.css">
+      <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One" rel="stylesheet">
+	   	<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+	  	<link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
       <script src="simon.js" ></script>
-      <title>Simon</title>
+      
 
 </head>
 <body>
+    <div id="mssg">
+      <p></p>
+    </div>
     <div id="outer-circle"> 
        
         <button type="button" id="button-1"  onclick="addPlayerMove('button-1')"></button>
         <button type="button" id="button-2"  onclick="addPlayerMove('button-2')"></button>
         <button type="button" id="button-3"  onclick="addPlayerMove('button-3')"></button>
         <button type="button" id="button-4"  onclick="addPlayerMove('button-4')" ></button>
-    
+      
       <div id="inner-circle">
-            <h1 id="text-font">Simon</h1>
-         <div id="inner-circle-content">
-              
-            <input type="text" id="strict" readonly> <br>
-              
-            <input type="text" name="counter" size="5px" placeholder="- -" id= "count">
-              
-            <button type="button" id="button-5" onclick="start()"value="start"></button>
-              
-            <button type="button"  id="button-6" onclick="setStrict()"></button><br><br>
-              
-            <label><font class="font" style="font-size:14px">&nbsp&nbsp&nbsp&nbsp&nbsp&nbspCOUNT&nbsp&nbsp&nbspSTART&nbsp&nbspSTRICT</font></label>
-            <br><br>
-              
-            <font class="font"style="margin-left:35px;">OFF</font>
+            <h2 id="text-font">Simon</h2>
+            <div id="inner-circle-content">
+                <input type="text" id="strict" readonly> <br>
+                <input type="text" name="counter" size="5px" placeholder="--" id= "count">
+                <button type="button" id="button-5" onclick="start()"value="start"></button>
+                <button type="button"  id="button-6" onclick="setStrict()"></button><br><br>
+                <div><label><font id="label">COUNT</font><font id="label">START</font><font id="label">STRICT</font></label></div>
+            <br>
+            <div id="switch-container">
+            <font class="font">OFF</font>
             <label class="switch">
-              <input type="checkbox" onclick="toggle()" id="check">
-              <span class="slider"></span>
+            <input type="checkbox" onclick="toggle()" id="check">
+            <span class="slider"></span>
             </label><font class="font">ON</font>
-        </div>
+            </div>
+           </div>
       </div>
 
 
