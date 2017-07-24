@@ -40,7 +40,8 @@ body{
     width:  236px;
     margin-left: 236px;
     border-radius:0px 100% 0px 0px;
-    border: 15px solid #202020;
+    border:solid #202020;
+    border-width: 20px 20px 10px 10px;
     box-shadow: 0px 0px 12px #222;
 }
 
@@ -61,7 +62,8 @@ button:focus{
     margin-top: 0px;
     position: absolute;
     border-radius:100% 0px 0px 0px;
-    border: 15px solid #202020;
+    border:solid #202020;
+    border-width: 20px 10px 10px 20px;
     box-shadow: 0px 0px 12px #222;
 }
 
@@ -78,7 +80,8 @@ button:focus{
     margin-top: 236px;
     position: absolute;
     border-radius:0px 0px 0px 100%;
-    border: 15px solid #202020;
+    border:solid #202020;
+    border-width: 10px 10px 20px 20px;
     box-shadow: 0px 0px 12px #222;
    
 }
@@ -96,7 +99,8 @@ button:focus{
     margin-top:  236px;
     position: absolute;
     border-radius:0px 0px 100% 0px;
-    border: 15px solid #202020;
+    border:solid #202020;
+    border-width: 10px 20px 20px 10px;
     box-shadow: 0px 0px 12px #222;
 }
 
