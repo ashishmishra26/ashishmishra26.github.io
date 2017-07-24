@@ -62,8 +62,17 @@ function start(){            //initial function, called when start button is cli
 
 function addCount(){                      //to increase the count of stages.
     game.stage++;
-    document.getElementById('count').value=game.stage;
+    displayCount();
     generateSequence();                   //call to generate sequence of random button.
+}
+
+function displayCount(){
+    if(game.stage.toString().length==1){
+        document.getElementById('count').value="0"+game.stage;
+        }
+        else{
+        document.getElementById('count').value=game.stage;   
+        }
 }
 
 function generateSequence(){              //for generating sequence
@@ -77,7 +86,12 @@ function showSequence(){                    //function to show the sequence by f
     if(checkOnOff()===true){
         buttonDisable();                                                           //disable buttons while showing sequence
         document.getElementById("button-5").setAttribute("disabled","disabled");
-        document.getElementById('count').value=game.stage;
+        if(game.stage.toString().length==1){
+        document.getElementById('count').value="0"+game.stage;
+        }
+        else{
+        document.getElementById('count').value=game.stage;   
+        }
         if(game.currentSequence.length!=0){
             moves=setInterval(function(){                     //set an interval to control sequence.
             showMove(game.currentSequence[i]);                //function call to flash each buttons.
@@ -135,7 +149,7 @@ function wrongBlink(){                             //to blink the wrong signal w
     },0);
     setTimeout(function(){
         if(game.stage!=0){
-        document.getElementById("count").value=game.stage;
+            displayCount();
     }
     else{
         document.getElementById("count").value="!"+" "+"!"; 
@@ -210,7 +224,7 @@ function toggle(){                          //change toggle switch
         document.getElementById("count").value="--";
     }
 }
-function buttonDisable(){                 //To return game to its initial configuration. 
+function buttonDisable(){                 //To disable button.
      document.getElementById("button-1").setAttribute("disabled","disabled");
      document.getElementById("button-2").setAttribute("disabled","disabled");
      document.getElementById("button-3").setAttribute("disabled","disabled");
