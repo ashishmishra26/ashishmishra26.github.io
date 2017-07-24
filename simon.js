@@ -115,7 +115,7 @@ function showSequence(){                    //function to show the sequence by f
         else{
             showSequence();
         }
-    },10000);
+    },(7000+(game.stage*1000)));
 }
 }
 
