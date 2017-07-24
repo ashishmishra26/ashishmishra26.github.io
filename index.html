@@ -1,53 +1,57 @@
 <html>
+
 <head>
-      <link rel="icon" href="Simon.png" type="image/png">
-      <title>Simon&reg Game</title>
-      <link rel=stylesheet type="text/css" href="master.css">
-      <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One" rel="stylesheet">
-	   	<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
-	  	<link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
-      <script src="simon.js" ></script>
-      
+    <link rel="icon" href="Simon.png" type="image/png">
+    <title>Simon&reg Game</title>
+    <link rel=stylesheet type="text/css" href="master.css">
+    <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
+    <script src="simon.js"></script>
+
 
 </head>
+
 <body>
     <div id="mssg">
-      <p></p>
+        <p></p>
     </div>
-    <div id="outer-circle"> 
-       
-        <button type="button" id="button-1"  onclick="addPlayerMove('button-1')"></button>
-        <button type="button" id="button-2"  onclick="addPlayerMove('button-2')"></button>
-        <button type="button" id="button-3"  onclick="addPlayerMove('button-3')"></button>
-        <button type="button" id="button-4"  onclick="addPlayerMove('button-4')" ></button>
-      
-      <div id="inner-circle">
+    <div id="outer-circle">
+
+        <button type="button" id="button-1" onclick="addPlayerMove('button-1')"></button>
+        <button type="button" id="button-2" onclick="addPlayerMove('button-2')"></button>
+        <button type="button" id="button-3" onclick="addPlayerMove('button-3')"></button>
+        <button type="button" id="button-4" onclick="addPlayerMove('button-4')"></button>
+
+        <div id="inner-circle">
             <h2 id="text-font">Simon</h2>
             <div id="inner-circle-content">
                 <input type="text" id="strict" readonly> <br>
-                <input type="text" name="counter" size="5px" placeholder="" id= "count">
-                <button type="button" id="button-5" onclick="start()"value="start"></button>
-                <button type="button"  id="button-6" onclick="setStrict()"></button><br><br>
+                <input type="text" name="counter" size="5px" placeholder="" id="count">
+                <button type="button" id="button-5" onclick="start()" value="start"></button>
+                <button type="button" id="button-6" onclick="setStrict()"></button><br><br>
                 <div><label><font class="label">COUNT</font><font class="label">START</font><font class="label">STRICT</font></label></div>
-            <br>
-            <div id="switch-container">
-            <font class="font">OFF</font>
-            <label class="switch">
+                <br>
+                <div id="switch-container">
+                    <font class="font">OFF</font>
+                    <label class="switch">
             <input type="checkbox" onclick="toggle()" id="check">
             <span class="slider"></span>
-            </label><font class="font">ON</font>
+            </label>
+                    <font class="font">ON</font>
+                </div>
             </div>
-           </div>
-      </div>
+        </div>
 
 
     </div>
-     
 
-<audio id="Green" src="assets/audio/Green.mp3"></audio>
-<audio id="Red" src="assets/audio/Red.mp3"></audio>
-<audio id="Yellow" src="assets/audio/Yellow.mp3"></audio>
-<audio id="Blue" src="assets/audio/Blue.mp3"></audio>
-<audio id="Wrong" src="assets/audio/Wrong.mp3"></audio>
+
+    <audio id="Green" src="assets/audio/Green.mp3"></audio>
+    <audio id="Red" src="assets/audio/Red.mp3"></audio>
+    <audio id="Yellow" src="assets/audio/Yellow.mp3"></audio>
+    <audio id="Blue" src="assets/audio/Blue.mp3"></audio>
+    <audio id="Wrong" src="assets/audio/Wrong.mp3"></audio>
 </body>
+
 </html>
