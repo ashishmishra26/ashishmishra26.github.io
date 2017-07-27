@@ -1,6 +1,7 @@
 <html>
 
 <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="assets/images/Simon.png" type="image/png">
     <title>Simon&reg Game</title>
     <link rel=stylesheet type="text/css" href="src/master.css">
@@ -24,34 +25,64 @@
         <button type="button" id="button-4" onclick="addPlayerMove('button-4')"></button>
 
         <div id="inner-circle">
-            <h2 id="text-font">Simon</h2>
             <div id="inner-circle-content">
+                <h2 id="text-font">Simon</h2>
                 <input type="text" id="strict" readonly> <br>
-                <input type="text" name="counter" size="5px" placeholder="" id="count">
-                <button type="button" id="button-5" onclick="start()" value="start"></button>
-                <button type="button" id="button-6" onclick="setStrict()"></button><br><br>
-                <div><label><font class="label">COUNT</font><font class="label">START</font><font class="label">STRICT</font></label></div>
-                <br>
+                <div><input type="text" name="counter" size="5px" placeholder="" id="count">
+                    <font id="label1">COUNT</font>
+                </div>
+                <div> <button type="button" id="button-5" onclick="start()" value="start">
+                  </button>
+                    <font id="label2">START</font>
+                </div>
+                <div><button type="button" id="button-6" onclick="setStrict()"></button>
+                    <font id="label3">STRICT</font>
+                </div>
+
                 <div id="switch-container">
-                    <font class="font">OFF</font>
+
                     <label class="switch">
             <input type="checkbox" onclick="toggle()" id="check">
             <span class="slider"></span>
             </label>
-                    <font class="font">ON</font>
+
                 </div>
+
             </div>
+
+
         </div>
+
+
 
 
     </div>
 
 
-    <audio id="Green" src="assets/audio/Green.mp3"></audio>
-    <audio id="Red" src="assets/audio/Red.mp3"></audio>
-    <audio id="Yellow" src="assets/audio/Yellow.mp3"></audio>
-    <audio id="Blue" src="assets/audio/Blue.mp3"></audio>
-    <audio id="Wrong" src="assets/audio/Wrong.mp3"></audio>
+
+    </div>
+
+
+    <audio id="Green">
+        <source src="assets/audio/Green.mp3" </source>
+        <source src="assets/audio/Green.ogg">
+    </audio>
+    <audio id="Red">
+        <source src="assets/audio/Red.mp3" </source>
+        <source src="assets/audio/Red.ogg">
+    </audio>
+    <audio id="Yellow">
+        <source src="assets/audio/Yellow.mp3" </source>
+        <source src="assets/audio/Yellow.ogg">
+    </audio>
+    <audio id="Blue">
+        <source src="assets/audio/Blue.mp3" </source>
+        <source src="assets/audio/Blue.ogg">
+    </audio>
+    <audio id="Wrong">
+        <source src="assets/audio/Wrong.ogg">
+        <source src="assets/audio/Wrong.ogg">
+    </audio>
 </body>
 
 </html>

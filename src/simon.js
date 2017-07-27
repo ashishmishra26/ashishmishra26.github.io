@@ -6,6 +6,19 @@ var game = { //object which contain properties of game.
     strict: false, //variable for strict mode state
     timeout: NaN,
 };
+function buttonDisable() { //To disable button.
+    document.getElementById("button-1").setAttribute("disabled", "disabled");
+    document.getElementById("button-2").setAttribute("disabled", "disabled");
+    document.getElementById("button-3").setAttribute("disabled", "disabled");
+    document.getElementById("button-4").setAttribute("disabled", "disabled");
+}
+
+function buttonEnable() { //to enable buttons.
+    document.getElementById("button-1").removeAttribute("disabled");
+    document.getElementById("button-2").removeAttribute("disabled");
+    document.getElementById("button-3").removeAttribute("disabled");
+    document.getElementById("button-4").removeAttribute("disabled");
+}
 
 function reset() { //function for reseting the game.                  
     if (game.strict === true) {
@@ -198,16 +211,3 @@ function toggle() { //change toggle switch
     }
 }
 
-function buttonDisable() { //To disable button.
-    document.getElementById("button-1").setAttribute("disabled", "disabled");
-    document.getElementById("button-2").setAttribute("disabled", "disabled");
-    document.getElementById("button-3").setAttribute("disabled", "disabled");
-    document.getElementById("button-4").setAttribute("disabled", "disabled");
-}
-
-function buttonEnable() { //to enable buttons.
-    document.getElementById("button-1").removeAttribute("disabled");
-    document.getElementById("button-2").removeAttribute("disabled");
-    document.getElementById("button-3").removeAttribute("disabled");
-    document.getElementById("button-4").removeAttribute("disabled");
-}
