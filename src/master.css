@@ -152,6 +152,23 @@ button::-moz-focus-inner {
     pointer-events: none;
 }
 
+#label4 {
+    position:absolute;
+    font-size:2vmin;
+    font-family: 'Oswald', sans-serif;
+    left:1vmin;
+    pointer-events: none;
+
+}
+#label5 {
+    position:absolute;
+    font-size:2vmin;
+    font-family: 'Oswald', sans-serif;
+    right:1vmin;
+    pointer-events: none;
+
+}
+
 #inner-circle-content {
     position: relative;
     text-align: center;
@@ -268,7 +285,7 @@ input:checked+.slider:before {
 }
 
 
-/*******************************************************************************************/
+/* ***************************************************************************************** */
 
 @media only screen and (max-width:500px) {
     body {
