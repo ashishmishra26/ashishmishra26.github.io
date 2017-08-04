@@ -220,7 +220,6 @@ describe("set of tests", function () {
       spyOn(spy,'displayCount');
       jasmine.clock().uninstall();
     });
-
   });
   
   describe("playerTurn test", function () {
@@ -301,12 +300,10 @@ describe("set of tests", function () {
       game.strict = false;
       game.stage = 20;
       jasmine.clock().install();
-      
       GameObject.playerTurn();
       expect(document.getElementById("mssg").innerHTML).toEqual("YOU WON");
       jasmine.clock().tick(2001);
       expect(document.getElementById("mssg").innerHTML).toBe("");
-     
     });
   });
 });
