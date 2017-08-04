@@ -15,14 +15,13 @@
 
 <body>
     <div id="mssg">
-        <p></p>
     </div>
     <div id="outer-circle">
 
-        <button type="button" id="button-1" onclick="addPlayerMove('button-1')"></button>
-        <button type="button" id="button-2" onclick="addPlayerMove('button-2')"></button>
-        <button type="button" id="button-3" onclick="addPlayerMove('button-3')"></button>
-        <button type="button" id="button-4" onclick="addPlayerMove('button-4')"></button>
+        <button type="button" id="button-1" onclick="GameObject.addPlayerMove('button-1')"></button>
+        <button type="button" id="button-2" onclick="GameObject.addPlayerMove('button-2')"></button>
+        <button type="button" id="button-3" onclick="GameObject.addPlayerMove('button-3')"></button>
+        <button type="button" id="button-4" onclick="GameObject.addPlayerMove('button-4')"></button>
 
         <div id="inner-circle">
             <div id="inner-circle-content">
@@ -31,17 +30,17 @@
                 <div><input type="text" name="counter" size="5px" placeholder="" id="count">
                     <font id="label1">COUNT</font>
                 </div>
-                <d> <button type="button" id="button-5" onclick="start()" value="start"></button>
+                <d> <button type="button" id="button-5" onclick="GameObject.start()" value="start"></button>
                      <font id="label2">START</font>
                 </d iv>
-                <div><button type="button" id="button-6" onclick="setStrict()"></button>
+                <div><button type="button" id="button-6" onclick="GameObject.setStrict()"></button>
                     <font id="label3">STRICT</font>
                 </div>
                     
                 <div id="switch-container">
                     <font id="label4">OFF</font>
                     <label class="switch">
-                        <input type="checkbox" onclick="toggle()" id="check">
+                        <input type="checkbox" onclick="GameObject.toggle()" id="check">
                         <span class="slider"></span>
                     </label>
                     <font id="label5">ON</font>

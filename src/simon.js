@@ -1,213 +1,212 @@
-var game = { //object which contain properties of game.
+
+var game= { //object which contain properties of game.
     stage: 0, //current stage of game.
-    possible: ['button-1', 'button-2', 'button-3', 'button-4'], //array for possible value for random generator.
+    possible: ["button-1","button-2","button-3","button-4"], //array for possible value for random generator.
     currentSequence: [], //array for current sequence of game
     playerMoves: [], //array for storing player moves
     strict: false, //variable for strict mode state
     timeout: NaN,
+    test:0,
 };
+var GameObject={};
 
-function reset() { //function for reseting the game.                  
+GameObject.reset=function (){ //function for reseting the game.                  
     if (game.strict === true) {
-        setStrict();
+        GameObject.setStrict();
     }
     clearTimeout(game.timeout);
     document.getElementById("count").value = "";
-    buttonDisable();
+    GameObject.buttonDisable();
     game.currentSequence = [];
     game.playerMove = [];
     game.strict = false;
     game.stage = 0;
-}
-
-window.onload = function () { //to disable buttons when game starts.
-    buttonDisable();
 };
 
-function checkOnOff() { //to check status of toggle button.
-    return (document.getElementById('check').checked);
-}
+window.onload = function () { //to disable buttons when game starts.
+    GameObject.buttonDisable();
+};
 
-function setStrict() { //to set and reset strict button.
-    if (checkOnOff() === true) {
+GameObject.checkOnOff=function () { //to check status of toggle button.
+    return document.getElementById("check").checked;
+};
+
+GameObject.setStrict=function() { //to set and reset strict button.
+    if (GameObject.checkOnOff() === true) {
         if (game.strict === false) {
-            document.getElementById('strict').style.backgroundColor = "red";
+            document.getElementById("strict").style.backgroundColor = "red";
             game.strict = true;
         } else {
-            document.getElementById('strict').style.backgroundColor = "black";
+            document.getElementById("strict").style.backgroundColor = "black";
             game.strict = false;
         }
         return game.strict;
     } else {
-        document.getElementById('strict').style.backgroundColor = "black";
+        document.getElementById("strict").style.backgroundColor = "black";
     }
-}
+};
+GameObject.start=function (){ //initial function, called when start button is clicked.
+    game.stage = 0;
+    game.currentSequence = [];
+    game.playerMoves = [];
+    GameObject.addCount(); //calls addcount function when game is on.
+};
 
-function start() { //initial function, called when start button is clicked.
-    if (checkOnOff() === true) {
-        game.stage = 0;
-        game.currentSequence = [];
-        game.playerMoves = [];
-        addCount(); //calls addcount function when game is on.
-    } else {
-        return; //if game is off return.
-    }
-}
-
-function addCount() { //to increase the count of stages.
+GameObject.addCount=function () { //to increase the count of stages.
     game.stage++;
-    displayCount();
-    generateSequence(); //call to generate sequence of random button.
-}
+    GameObject.displayCount();
+    GameObject.generateSequence(); //call to generate sequence of random button.
+};
 
-function displayCount() {
+GameObject.displayCount=function() {
     if (game.stage.toString().length == 1) {
-        document.getElementById('count').value = "0" + game.stage;
+        document.getElementById("count").value = "0" + game.stage;
     } else {
-        document.getElementById('count').value = game.stage;
+        document.getElementById("count").value = game.stage;
     }
-}
+};
 
-function generateSequence() { //for generating sequence
-    if (checkOnOff() === true) {
+GameObject.generateSequence=function() { //for generating sequence
+    if (GameObject.checkOnOff() === true) {
         game.currentSequence.push(game.possible[(Math.floor(Math.random() * 4))]); //use of Math.random to generate random number.
-        showSequence(); //function call to show sequence to user by flashing buttons.
+        GameObject.showSequence(); //function call to show sequence to user by flashing buttons.
     }
-}
+};
 
-function showSequence() { //function to show the sequence by flashing the buttons.
-    var i = 0,
-        moves;
-    if (checkOnOff() === true) {
-        buttonDisable(); //disable buttons while showing sequence
+GameObject.showSequence=function(){ //function to show the sequence by flashing the buttons.
+    var i = 0,moves;
+    if (GameObject.checkOnOff() === true) {
+        GameObject.buttonDisable(); //disable buttons while showing sequence
         document.getElementById("button-5").setAttribute("disabled", "disabled");
         if (game.stage.toString().length == 1) {
-            document.getElementById('count').value = "0" + game.stage;
+            document.getElementById("count").value = "0" + game.stage;
         } else {
-            document.getElementById('count').value = game.stage;
+            document.getElementById("count").value = game.stage;
         }
         if (game.currentSequence.length != 0) {
             moves = setInterval(function () { //set an interval to control sequence.
-                showMove(game.currentSequence[i]); //function call to flash each buttons.
+                GameObject.showMove(game.currentSequence[i]); //function call to flash each buttons.
                 i = i + 1;
                 if (i >= game.currentSequence.length) {
                     clearInterval(moves); //if all button are shown to user,clear the interval.
                 }
-            }, 800);
+            },800);
             setTimeout(function () {
-                buttonEnable(); //enable the buttons once again
+                GameObject.buttonEnable(); //enable the buttons once again
                 document.getElementById("button-5").removeAttribute("disabled");
             }, (game.stage * 1000));
             game.playerMoves = [];
+        }else{
+            return 22;
         }
+    }else{
+        return 23;
     }
-}
+};
 
-function showMove(id) { //for showing perticular button and audio play.
-    if (checkOnOff() == true) {
+GameObject.showMove = function(id){ //for showing perticular button and audio play.
+    if (GameObject.checkOnOff() == true) {
         document.getElementById(id).style.opacity = "0.6";
-        playAudio(id);
+        GameObject.playAudio(id);
         setTimeout(function () {
             document.getElementById(id).style.opacity = "1";
         }, 300);
+    }else{
+        return 56;
     }
-}
+};
 
-function addPlayerMove(id) { //called when user clicks button as a move.
-    if (checkOnOff() === true) {
+GameObject.addPlayerMove=function(id) { //called when user clicks button as a move.
+    if (GameObject.checkOnOff() === true) {
         game.playerMoves.push(id); //add the button to playerMoves array.
-        playAudio(id); //play audio of perticular button.
-        playerTurn(id); //call playerTurn with button id.
-    } else {
-        return;
+        GameObject.playAudio(id); //play audio of perticular button.
+        GameObject.playerTurn(id); //call playerTurn with button id.
+    }else {
+        return 5;
     }
-}
+};
 
-function wrongBlink() { //to blink the wrong signal when user clicks wrong button in sequence.
+GameObject.wrongBlink=function() { //to blink the wrong signal when user clicks wrong button in sequence.
     setTimeout(function () {
         document.getElementById("count").value = "!" + " " + "!";
     }, 0);
     setTimeout(function () {
         if (game.stage != 0) {
-            displayCount();
+            GameObject.displayCount();
         } else {
             document.getElementById("count").value = "!" + " " + "!";
         }
     }, 200);
-}
+};
 
-function playerTurn(input) {
+GameObject.playerTurn=function() {
     var length1 = game.playerMoves.length;
     var length2 = game.currentSequence.length;
     if (game.playerMoves[length1 - 1] !== game.currentSequence[length1 - 1]) { //check if user input is right.
         if (game.strict === true) { //check if strict mode is on
-            buttonDisable();
-            playAudio('wrong');
-            wrongBlink();
+            GameObject.buttonDisable();
+            GameObject.playAudio("wrong");
+            GameObject.wrongBlink();
             game.currentSequence = [];
             game.playerMoves = [];
-            start();
-        } else { //if strict mode is off 
-            buttonDisable();
-            playAudio('wrong');
-            wrongBlink();
-            showSequence(); //show the sequence again.
+            GameObject.start();
+        }else { //if strict mode is off 
+            GameObject.buttonDisable();
+            GameObject.playAudio("wrong");
+            GameObject.wrongBlink();
+            GameObject.showSequence(); //show the sequence again.
         }
-    } else {
+    } else{
         if (length1 == length2) { //check if user has clicked all buttons of sequence correctly.
             if (game.stage === 20) { //check if current stage of game is 20 
                 document.getElementById("mssg").innerHTML = "YOU WON";
-                reset();
+                GameObject.reset();
                 setTimeout(function () {
                     document.getElementById("mssg").innerHTML = "";
                 }, 2000);
                 document.getElementById("check").checked = false;
             } else { //if final stage is not cleared.
-                addCount(); //call addCount function to increase the level.
+                GameObject.addCount(); //call addCount function to increase the level.
             }
         }
     }
-}
+};
 
-function playAudio(id) //for playing sounds.
-{
-    var x;
-    if (id == 'button-1') {
-        x = document.getElementById("Red");
-        x.play();
-    } else if (id == 'button-2') {
-        x = document.getElementById("Blue");
-        x.play();
-    } else if (id == 'button-3') {
-        x = document.getElementById("Green");
-        x.play();
-    } else if (id == 'button-4') {
-        x = document.getElementById("Yellow");
-        x.play();
-    } else if (id == 'wrong') {
-        x = document.getElementById("Wrong");
-        x.play();
+GameObject.playAudio=function(id){
+    if (id == "button-1") {
+        document.getElementById("Red").play();
+    } else if (id == "button-2") {
+        document.getElementById("Blue").play();
+    } else if (id == "button-3") {
+        document.getElementById("Green").play();
+    } else if (id == "button-4") {
+        document.getElementById("Yellow").play();
+    } else if (id == "wrong") {
+        document.getElementById("Wrong").play();
     }
-}
+};
 
-function toggle() { //change toggle switch
-    if (checkOnOff() === false) {
-        reset();
+GameObject.toggle=function() { //change toggle switch
+    if (GameObject.checkOnOff() === false) {
+        GameObject.reset();
     } else {
         document.getElementById("count").value = "--";
     }
-}
+};
 
-function buttonDisable() { //To disable button.
-    document.getElementById("button-1").setAttribute("disabled", "disabled");
-    document.getElementById("button-2").setAttribute("disabled", "disabled");
-    document.getElementById("button-3").setAttribute("disabled", "disabled");
-    document.getElementById("button-4").setAttribute("disabled", "disabled");
-}
+GameObject.buttonDisable=function() { //To disable button.
+    document.getElementById("button-1").disabled=true;
+    document.getElementById("button-2").disabled=true;
+    document.getElementById("button-3").disabled=true;
+    document.getElementById("button-4").disabled=true;
+   
+};
 
-function buttonEnable() { //to enable buttons.
-    document.getElementById("button-1").removeAttribute("disabled");
-    document.getElementById("button-2").removeAttribute("disabled");
-    document.getElementById("button-3").removeAttribute("disabled");
-    document.getElementById("button-4").removeAttribute("disabled");
-}
+GameObject.buttonEnable=function(){ //to enable buttons.
+    document.getElementById("button-1").disabled=false;
+    document.getElementById("button-2").disabled=false;
+    document.getElementById("button-3").disabled=false;
+    document.getElementById("button-4").disabled=false;
+    return 5;
+};
+

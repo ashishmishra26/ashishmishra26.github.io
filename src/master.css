@@ -384,7 +384,6 @@ input:checked+.slider:before {
     #count {
         position: absolute;
         background-color: #33040b;
-        ;
         font-family: 'VT323', monospace;
         font-size: 4vw;
         height: 6vw;
