@@ -135,7 +135,7 @@ describe("set of tests", function () {
   });
   
   describe("show sequence test", function () {
-    it("spy testing", function () {
+    it("should call buttonDisable", function () {
       document.getElementById("check").checked =true;
       game.stage = 1;
       var spy = GameObject;
@@ -145,14 +145,14 @@ describe("set of tests", function () {
       expect(document.getElementById("count").value).toBe("0" + game.stage);
     });
 
-    it("spy testing", function () {
+    it("should change count", function () {
       document.getElementById("check").checked =true;
       game.stage = '11';
       GameObject.showSequence();
       expect(document.getElementById("count").value).toBe(game.stage);
     });
     
-    it("spy testing", function () {
+    it("is set timeout test", function () {
       document.getElementById("check").checked =true;
       game.stage = 1;
       game.currentSequence = ["button-1"];
@@ -165,7 +165,7 @@ describe("set of tests", function () {
       jasmine.clock().uninstall();
     });
     
-    it("spy testing", function () {
+    it("is also set timeout test", function () {
       jasmine.clock().install();
       var spy = GameObject;
       spyOn(spy, 'buttonEnable');
@@ -218,7 +218,6 @@ describe("set of tests", function () {
       jasmine.clock().tick(201);
       var spy = GameObject;
       spyOn(spy,'displayCount');
-      //expect(spy.displayCount).toHaveBeenCalled();
       jasmine.clock().uninstall();
     });
 
@@ -252,13 +251,12 @@ describe("set of tests", function () {
     });
 
   });
-
+  
   describe("buttonEnable", function () {
     it("should return 5", function () {
       expect(GameObject.buttonEnable()).toBe(5);
     });
   });
-
 
   describe("player turn", function () {
     beforeEach(function () {
@@ -311,29 +309,4 @@ describe("set of tests", function () {
      
     });
   });
-
-
-
-
-
-
-
-
-
 });
-
-
-
-/*describe("A suite", function() {
-  it("contains spec with an expectation", function() {
-  
-
-    expect(game.stage).toBe(0);
-  });
-});
-
-describe("A suite", function() {
-  it("contains spec with an expectation", function() {
-
-  });
-});*/
